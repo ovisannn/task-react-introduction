@@ -1,14 +1,11 @@
-import Home from './Home'
-import Contact from './Contact-us'
-
-
+import Main from "./pages/main/Main";
+import { dataList } from "./pages/main/data";
 
 function App() {
   return (
-    <div>
-      <Home/>
-      <Contact/>
-    </div>
+    <>
+      <Main varDataList = {dataList} key={dataList.id} />
+    </>
   );
 }
 
