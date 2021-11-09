@@ -1,6 +1,22 @@
+import { useHistory } from "react-router";
 import style from "../components/style.module.css"
-const ListItem = ({item, hapusList, ubahCeklis}) => {
 
+const ListItem = ({item, hapusList, ubahCeklis, props}) => {
+
+    const {id, title, completed} = item;
+
+    const history = useHistory();
+    const detailProfil = () => {
+        
+        history.push({
+            pathname: `/profile/${title}`,
+            state : {
+                data : props
+            }
+            
+        })
+    }
+    
 
     return (
 
@@ -14,7 +30,9 @@ const ListItem = ({item, hapusList, ubahCeklis}) => {
                 }}/>
             </td>
             <td>
-                <button className={style.buttonDelete} onClick={()=>{hapusList(item.id)}}>Hapus</button>
+                <button className='btn btn-danger' onClick={()=>{hapusList(item.id)}}>Hapus</button>
+                <br />
+                <button className='btn btn-secondary my-2' onClick={detailProfil}>Detail</button>
             </td>
         </tr>
     )
