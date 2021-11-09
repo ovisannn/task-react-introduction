@@ -1,35 +1,30 @@
-import { Component } from "react";
+import { useState } from "react/cjs/react.development";
 import style from "../components/style.module.css"
 
 
-class ListInput extends Component {
-    state = {
+function ListInput(props){
+    const [data, setData] = useState({
         item: "",
-    }
-    onChange = (e) => {
-        this.setState({
+    })
+    const onChange = (e) => {
+        setData({...data,
             [e.target.name] : e.target.value
         })
-        setTimeout(() => {
-            console.log(e.target.value)
-            console.log(this.state.item)
-        }, 1000);
-        
     }
 
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const formIsNotEmpty = this.state.item;
+        const formIsNotEmpty = data.item;
 
         if (formIsNotEmpty) {
             const newData = {
-                item : this.state.item,
+                item : data.item,
             }
             
-            this.props.tambahList(newData);
+            props.tambahList(newData);
 
-            this.setState({
+            setData({
                 item: "",
 
             })
@@ -37,16 +32,12 @@ class ListInput extends Component {
             alert("Data masih ada yang kosong")
         }
     }
-    render () {
-        return (
-            <div>
-                <input type="text" name="item" className={style.inputFill} onChange={this.onChange} value={this.state.item} />
-                <button className={style.buttonInput} value={this.state.item} onClick={this.handleSubmit} >Tambah</button>
-            </div>
-        )
-    }
-        
-        
+    return (
+        <div>
+            <input type="text" name="item" className={style.inputFill} onChange={onChange} value={data.item} />
+            <button className={style.buttonInput} value={data.item} onClick={handleSubmit} >Tambah</button>
+        </div>
+    )     
 }
 
 
