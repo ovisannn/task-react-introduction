@@ -1,17 +1,22 @@
 
+
 import ListItem from "./ListItem";
 import style from "../components/style.module.css"
 import ListInput from "./ListInput";
+import { useSelector, useDispatch } from "react-redux";
+import { hapusList, ubahCeklis } from "../../store/dataSlice";
 
 
 
 const ListTugas = (props) => {
-    const{data, hapusList, tambahList, ubahCeklis} = props //ambil variabel data dan hapus list dari props
+    // const{data, hapusList, tambahList, ubahCeklis} = props //ambil variabel data dan hapus list dari props
+
+    const dataForms = useSelector((state) => state.formData.formDatas)
 
     return (
         <div className={style.container}>
 
-            <ListInput tambahList={tambahList} ubahCeklis={ubahCeklis}/>
+            <ListInput/>
 
             <br /><br />
 
@@ -23,7 +28,7 @@ const ListTugas = (props) => {
 
                 </thead>
                 <tbody>
-                    {data.map((x) => <ListItem key={x.id} item = {x} hapusList ={hapusList} ubahCeklis ={ubahCeklis}/>)}
+                    {dataForms.map((x) => <ListItem key={x.id} item = {x} />)}
                 </tbody>
 
             </table>
