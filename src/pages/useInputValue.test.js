@@ -4,14 +4,14 @@ import { useInputValue } from './useInputValue';
 describe('Render', () => {
   it('Initial value', () => {
     const { result } = renderHook(
-      () => useInputValue('Agus DM'));
+      () => useInputValue('ovi san'));
 
-    expect(result.current.value).toEqual('Agus DM');
+    expect(result.current.value).toEqual('ovi san');
   });
 
   it('Uppercase value', () => {
     const { result, rerender } = renderHook(
-      () => useInputValue('Agus DM'));
+      () => useInputValue('ovi san'));
 
     act(() => result.current.onChange({target: {value: 'Succes update'}}));
     rerender("a")

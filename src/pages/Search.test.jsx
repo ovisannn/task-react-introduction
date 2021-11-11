@@ -10,9 +10,9 @@ jest.mock('axios');
 describe('Search', () => {
   test('Get Data Succes from API', async () => {
     const stories = [
-      { objectID: '1', title: 'Agus' },
-      { objectID: '2', title: 'Dwi' },
-      { objectID: '3', title: 'Milniadi' },
+      { objectID: '1', title: 'opii' },
+      { objectID: '2', title: 'sanjaya' },
+      { objectID: '3', title: 'asd' },
 
     ];
 
