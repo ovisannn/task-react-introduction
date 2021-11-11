@@ -1,4 +1,13 @@
+import CobaTes from "./pages/CobaTest";
 
+
+
+
+
+function App() {
+  return (
+    <>
+      <CobaTes/>
     </>
   );
 }
